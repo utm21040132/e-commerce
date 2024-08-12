@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap'); 
+/* Importa la fuente 'Rubik' desde Google Fonts */
+
+:root {
+    --clr-main: #F5ABB1; /* Define el color principal */
+    --clr-main-light: #fbc4c9; /* Define una versión más clara del color principal */
+    --clr-main-dark: #cd8f94; /* Define una versión más oscura del color principal */
+    --clr-white: #FCF0F1; /* Define el color blanco utilizado en el diseño */
+    --clr-gray: #e2e2e2; /* Define un color gris claro */
+    --clr-red: #FF80A9; /* Define un color rojo claro */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif; /* Aplica la fuente Rubik a todos los elementos */
+}
+
+h1,h2,h3,h4,h5,h6,a,p,input,textarea,ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none; /* Quita los estilos de lista predeterminados */
+}
+
+a {
+    text-decoration: none; /* Quita el subrayado predeterminado en los enlaces */
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr; /* Divide el layout en dos columnas, una para el aside y otra para el contenido principal */
+    background-color: var(--clr-main); /* Establece el color de fondo del contenedor principal */
+}
+
+aside {
+    padding: 2rem;
+    color: var(--clr-white); /* Color de texto blanco */
+    position: sticky;
+    top: 0;
+    height: 100vh; /* Altura completa de la ventana */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacia los elementos dentro del aside */
+    padding-right: 0;
+}
+
+.logo {
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem; /* Espacio entre los elementos del menú */
+}
+
+.boton-menu {
+    background-color: transparent;
+    border: 0;
+    color: var(--clr-white); /* Color del texto en los botones del menú */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    font-size: .85rem;
+    width: 100%;
+}
+
+.boton-menu.active {
+    background-color: var(--clr-white); /* Fondo blanco para el botón activo */
+    color: var(--clr-main); /* Texto en color principal */
+    width: 100%;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+.boton-carrito {
+    margin-top: 2rem; /* Espacio superior adicional para el botón del carrito */
+}
+
+.number {
+    background-color: var(--clr-white); /* Fondo blanco para el número del carrito */
+    color: var(--clr-main); /* Texto en color principal */
+    padding: 0 .25rem;
+    border-radius: .25rem;
+}
+
+.boton-carrito.active .number {
+    background-color: var(--clr-main); /* Fondo en color principal cuando está activo */
+    color: var(--clr-white); /* Texto blanco cuando está activo */
+}
+
+.texto-footer {
+    color: var(--clr-main-light); /* Color claro para el texto del pie de página */
+}
+
+main {
+    background-color: var(--clr-white); /* Fondo blanco para la sección principal */
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 2rem;
+    padding: 3rem;
+}
+
+.titulo-principal {
+    color: var(--clr-main); /* Color principal para el título principal */
+}
+
+.contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr); /* Distribuye los productos en un grid de 4 columnas */
+    gap: 1rem;
+}
+
+.producto-imagen {
+    max-width: 100%;
+    border-radius: 1rem;
+}
+
+.producto-detalles {
+    background-color: var(--clr-main); /* Fondo en color principal para los detalles del producto */
+    color: var(--clr-white); /* Texto en color blanco */
+    padding: .5rem;
+    border-radius: 1rem;
+    margin-top: -2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.producto-titulo {
+    font-size: 1rem;
+}
+
+.producto-agregar {
+    border: 2px solid var(--clr-white); /* Borde blanco para el botón de agregar producto */
+    background-color: var(--clr-white); /* Fondo blanco */
+    color: var(--clr-main); /* Texto en color principal */
+    padding: .5rem;
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color .3s, color .2s; /* Transiciones para el fondo y el color al hacer hover */
+}
+
+.producto-agregar:hover {
+    background-color: var(--clr-main-light); /* Fondo en color claro al hacer hover */
+    color: var(--clr-white); /* Texto blanco al hacer hover */
+}
+
+/* Estilos para cuando el carrito está vacío */
+
+.contenedor-carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.carrito-vacio, .carrito-comprado {
+    color: var(--clr-main); /* Texto en color principal */
+    /* display: none; */ /* Se puede usar para ocultar estos elementos */
+}
+
+.carrito-productos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.carrito-producto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--clr-gray); /* Fondo gris claro para los productos en el carrito */
+    color: var(--clr-main); /* Texto en color principal */
+    padding: 0.5rem;
+    padding-right: 1.5rem;
+    border-radius: 1rem;
+}
+
+.carrito-producto-imagen {
+    width: 4rem;
+    border-radius: 1rem;
+}
+
+.carrito-producto small {
+    font-size: .75rem;
+}
+
+.carrito-producto-eliminar {
+    border: 0;
+    background-color: transparent; /* Fondo transparente para el botón de eliminar producto */
+    color: var(--clr-red); /* Texto en rojo */
+}
+
+.carrito-acciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carrito-acciones-vaciar {
+    border: 0;
+    background-color: var(--clr-gray); /* Fondo gris claro para el botón de vaciar carrito */
+    padding: 1rem;
+    border-radius: 1rem;
+    color: var(--clr-main); /* Texto en color principal */
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.carrito-acciones-derecha {
+    display: flex;
+}
+
+.carrito-acciones-total {
+    display: flex;
+    background-color: var(--clr-gray); /* Fondo gris claro para el total del carrito */
+    padding: 1rem;
+    align-items: center;
+    color: var(--clr-main); /* Texto en color principal */
+    text-transform: uppercase;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+.carrito-acciones-comprar {
+    border: 0;
+    background-color: var(--clr-main); /* Fondo en color principal para el botón de comprar */
+    padding: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    color: var(--clr-gray); /* Texto en color gris claro */
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.disabled {
+    display: none; /* Oculta los elementos con esta clase */
+}
